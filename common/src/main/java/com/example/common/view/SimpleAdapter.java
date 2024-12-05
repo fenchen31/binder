@@ -35,13 +35,14 @@ public abstract class SimpleAdapter<Binding extends ViewDataBinding,ItemType> ex
     @Override
     public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, parent, false);
-        return new SimpleViewHolder(binding);
+        return new SimpleViewHolder(binding.getRoot());
     }
 
     @Override
     public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position) {
-        onBindData((Binding) holder.binding, originData.get(position));
-        onBindData((Binding) holder.binding, originData, position);
+        Binding binding = DataBindingUtil.getBinding(holder.itemView);
+        onBindData(binding, originData.get(position));
+        onBindData(binding, originData, position);
     }
 
     @Override

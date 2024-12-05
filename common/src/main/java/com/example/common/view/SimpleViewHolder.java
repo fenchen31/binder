@@ -13,12 +13,9 @@ import androidx.viewbinding.ViewBinding;
  * @Date 2024/12/5
  * @describe
  */
-public class SimpleViewHolder<Binding extends ViewDataBinding> extends RecyclerView.ViewHolder{
+public class SimpleViewHolder extends RecyclerView.ViewHolder{
 
-    public Binding binding;
-
-    public SimpleViewHolder(Binding binding) {
-        super(binding.getRoot());
-        this.binding = binding;
+    public SimpleViewHolder(View v) {
+        super(v);
     }
 }
