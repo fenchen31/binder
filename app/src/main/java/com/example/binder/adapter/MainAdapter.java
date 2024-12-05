@@ -21,17 +21,16 @@ import java.util.ArrayList;
  * @Date 2024/12/5
  * @describe
  */
-public class MainAdapter extends SimpleAdapter<String>{
+public class MainAdapter extends SimpleAdapter<ItemMainBinding, String>{
 
     public MainAdapter(Context context, ArrayList<String> data, int layoutId) {
         super(context, data, layoutId);
     }
 
     @Override
-    public void onBindData(View v, String itemData) {
-        TextView tvText = v.findViewById(R.id.tv_text);
+    public void onBindData(ItemMainBinding binding, String itemData) {
         if (StringUtil.isNotEmpty(itemData)){
-            tvText.setText(itemData);
+            binding.tvText.setText(itemData);
         }
     }
 }

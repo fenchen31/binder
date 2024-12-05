@@ -19,30 +19,29 @@ import java.util.Objects;
  * @Date 2024/12/5
  * @describe  单布局RecyclerView的adapter
  */
-public abstract class SimpleAdapter<Type> extends RecyclerView.Adapter<SimpleViewHolder>{
+public abstract class SimpleAdapter<Binding extends ViewDataBinding,ItemType> extends RecyclerView.Adapter<SimpleViewHolder>{
 
-    public ArrayList<Type> originData;
+    public ArrayList<ItemType> originData;
     public Context context;
-    private LayoutInflater inflater;
     private int layoutId;
 
-    public SimpleAdapter(Context context, ArrayList<Type> data, int layoutId) {
+    public SimpleAdapter(Context context, ArrayList<ItemType> data, int layoutId) {
         this.originData = data;
         this.context = context;
-        inflater = LayoutInflater.from(context);
         this.layoutId = layoutId;
     }
 
     @NonNull
     @Override
     public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new SimpleViewHolder(inflater.inflate(layoutId, parent, false));
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, parent, false);
+        return new SimpleViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position) {
-        onBindData(holder.itemView, originData.get(position));
-        onBindData(holder.itemView, originData, position);
+        onBindData((Binding) holder.binding, originData.get(position));
+        onBindData((Binding) holder.binding, originData, position);
     }
 
     @Override
@@ -50,7 +49,7 @@ public abstract class SimpleAdapter<Type> extends RecyclerView.Adapter<SimpleVie
         return originData == null ? 0 : originData.size();
     }
 
-    public abstract void onBindData(View v, Type itemData);
+    public abstract void onBindData(Binding binding, ItemType itemData);
 
-    public void onBindData(View v, ArrayList<Type> originData, int position){}
+    public void onBindData(Binding binding, ArrayList<ItemType> originData, int position){}
 }
