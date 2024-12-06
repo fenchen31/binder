@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Drawable drawable = ContextCompat.getDrawable(this, R.mipmap.ic_beautiful_girl);
         int height = DpPx.dp2px(this, 100);
         drawable.setBounds(0, 0, height, height);
-        CenterImageSpan imageSpan = new CenterImageSpan(drawable, this);
+        CenterImageSpan imageSpan = new CenterImageSpan(drawable);
         spannableString.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         v.setText(spannableString);
         v.setIncludeFontPadding(false);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         builder.append(v.getText().toString());
         Drawable drawable = ContextCompat.getDrawable(this, resourceId);
         drawable.setBounds(0, 0, remainHeight, remainHeight);
-        CenterImageSpan span = new CenterImageSpan(drawable, this);
+        CenterImageSpan span = new CenterImageSpan(drawable);
         SpannableString text = new SpannableString(builder.toString());
         text.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         v.setText(text);

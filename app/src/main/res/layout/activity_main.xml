@@ -19,8 +19,9 @@
             android:id="@+id/tv_text"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:text="大富科省考"
+            android:text="大富科省考可视对讲付款了登记反馈IE日哦我"
             android:gravity="center_vertical"
+            android:singleLine="true"
             android:textColor="@color/color_FF03DAC5"
             android:textSize="30sp"
             android:paddingTop="50dp"
@@ -29,18 +30,20 @@
             app:layout_constraintStart_toEndOf="@id/tv_text2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
+        <ImageView
             android:id="@+id/tv_text2"
             android:layout_width="100dp"
-            android:layout_height="200dp"
-            android:gravity="center_vertical"
+            android:layout_height="100dp"
+            android:gravity="right"
+            android:scaleType="fitXY"
             android:textColor="@color/color_FF03DAC5"
             android:textSize="30sp"
-            android:paddingTop="40dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/ic_beautiful_girl"
+            app:layout_constraintTop_toTopOf="@id/tv_text"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@color/color_FF6200EE"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="@id/tv_text"/>
         <View
             android:layout_width="100dp"
             android:layout_height="60dp"
