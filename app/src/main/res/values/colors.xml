@@ -8,9 +8,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="color_FF03DAC5">#FF03DAC5</color>
+    <color name="color_03DAC5">#03DAC5</color>
     <color name="black">#FF000000</color>
     <color name="color_FF000000">#FF000000</color>
+    <color name="color_000000">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_FDF1F1">#FDF1F1</color>
+    <color name="color_C3C1C1">#C3C1C1</color>
     <color name="color_595757">#595757</color>
 </resources>
