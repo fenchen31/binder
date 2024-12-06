@@ -9,6 +9,29 @@
         android:id="@+id/rv_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.example.common.view.GradientBorderView
+        android:id="@+id/gbv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:storke_width="2dp"
+        app:is_gradient="true"
+        app:gradient_startColor="@color/color_03DAC5"
+        app:gradient_endColor="@color/color_A9ECE5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="30dp"
+        android:background="@color/color_FF000000"
+        app:layout_constraintTop_toTopOf="@id/gbv"
+        app:layout_constraintBottom_toBottomOf="@id/gbv"
+        app:layout_constraintStart_toStartOf="@id/gbv"
+        app:layout_constraintEnd_toEndOf="@id/gbv"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_navigation"
         android:layout_width="match_parent"
