@@ -53,15 +53,16 @@ public class GradientBorderView extends View {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.GradientBorderView);
         isGradient = array.getBoolean(R.styleable.GradientBorderView_is_gradient, true);
         isGradient = array.getBoolean(R.styleable.GradientBorderView_is_gradient, true);
-        borderWidth = array.getDimension(R.styleable.GradientBorderView_storke_width, 50);
+        borderWidth = array.getDimension(R.styleable.GradientBorderView_border_width, 1);
         startColor = array.getColor(R.styleable.GradientBorderView_gradient_startColor, ContextCompat.getColor(context, R.color.color_000000));
         endColor = array.getColor(R.styleable.GradientBorderView_gradient_endColor, ContextCompat.getColor(context, R.color.color_C3C1C1));
         borderColor = array.getColor(R.styleable.GradientBorderView_border_color, ContextCompat.getColor(context, R.color.color_000000));
         gradientVertiacl = array.getBoolean(R.styleable.GradientBorderView_gradient_vertical, true);
         array.recycle();
+        borderWidth = DpPx.dp2px(context, borderWidth);
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(DpPx.dp2px(context, borderWidth));
+        paint.setStrokeWidth(borderWidth);
         paint.setStyle(Paint.Style.STROKE);
         colors = new int[]{startColor, endColor};
         path = new Path();
@@ -74,8 +75,9 @@ public class GradientBorderView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         width = w;
         height = h;
+        float halfBorderWidth = borderWidth / 2;
+        rect.set(halfBorderWidth, halfBorderWidth, w - halfBorderWidth, h - halfBorderWidth);
         if (isGradient) {
-            rect.set(0, 0, w, h);
             if (gradientVertiacl) {
                 shader = new LinearGradient(width / 2, 0, width / 2, height, colors, null, Shader.TileMode.CLAMP);
             } else {
@@ -84,18 +86,16 @@ public class GradientBorderView extends View {
         } else {
             shader = null;
         }
+        paint.setShader(shader);
     }
 
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (shader != null) {
-            paint.setShader(shader);
-        }
         path.lineTo(width, 0);
         path.lineTo(width, height);
         path.lineTo(0, height);
         path.lineTo(0, 0);
-        canvas.drawPath(path, paint);
+        canvas.drawRoundRect(rect, width / 2, height / 2, paint);
     }
 }
