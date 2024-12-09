@@ -34,8 +34,7 @@ public class MainNavigationAdapter extends SingleAdapter<ItemMainNavigationBindi
     }
 
     @Override
-    public void onBindData(ItemMainNavigationBinding binding, String itemData) {
-    }
+    public void onBindData(ItemMainNavigationBinding binding, String itemData) {}
 
     @Override
     public void onBindData(ItemMainNavigationBinding binding, ArrayList<String> originData, int position) {
@@ -45,7 +44,7 @@ public class MainNavigationAdapter extends SingleAdapter<ItemMainNavigationBindi
         builder.append(selected ? originData.get(position) : " ");
         String key = (selected ? SELECTED : UNSELECTED) + position;
         Drawable drawable = ContextCompat.getDrawable(context, pictures.get(key));
-        int height = DpPx.dp2px(context, itemHeight);
+        int height = DpPx.dp2px(context, itemHeight) * 2 / 3;
         drawable.setBounds(0, 0, height, height);
         CenterImageSpan imageSpan = new CenterImageSpan(drawable);
         SpannableString spannableString = new SpannableString(builder.toString());

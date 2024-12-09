@@ -5,6 +5,7 @@
         <attr name="gradient_startColor" format="color">#000000</attr><!--开始颜色-->
         <attr name="gradient_endColor" format="color">#C3C1C1</attr><!--结束颜色-->
         <attr name="border_width" format="dimension">1dp</attr><!--边框宽度-->
+        <attr name="corners" format="dimension">5dp</attr><!--圆角-->
         <attr name="is_gradient" format="boolean">true</attr><!--是否渐变，不渐变则为单纯的颜色边框-->
         <attr name="border_color" format="color">#000000</attr><!--仅作为边框时的边框颜色-->
     </declare-styleable>
