@@ -18,6 +18,10 @@ import com.example.common.utils.DpPx;
  * @author 黎亮亮
  * @Date 2024/12/6
  * @describe 渐变边框view
+ *                  使用
+ *         app:border_width="2dp"
+ *         app:corners="30dp"
+ *         app:is_gradient="true"
  */
 public class GradientBorderView extends View {
 
@@ -25,8 +29,8 @@ public class GradientBorderView extends View {
     private int[] colors;
     private RectF rect;
     private Shader shader;
-    private boolean isGradient;//是否渐变
-    private boolean gradientVertiacl;//是否垂直渐变
+    private boolean isGradient;//是否是渐变，否则为单一颜色，取值是borderColor
+    private boolean gradientVertiacl;//是否垂直渐变,否则为水平渐变
     private float borderWidth;//边框宽度
     private int startColor, endColor;
     private int borderColor;//边框颜色
