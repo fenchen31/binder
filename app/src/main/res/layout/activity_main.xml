@@ -69,6 +69,14 @@
         app:layout_constraintBottom_toBottomOf="@id/gbv"
         app:layout_constraintStart_toStartOf="@id/gbv"
         app:layout_constraintEnd_toEndOf="@id/gbv"/>
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="跳转上传界面"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_navigation"
         android:layout_width="match_parent"

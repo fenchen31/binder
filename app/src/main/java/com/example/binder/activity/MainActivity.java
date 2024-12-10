@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         binding.gbv.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, VedioActivity.class));
         });
+        binding.btnUpload.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, UploadActivity.class));
+        });
         setNavigation();
         setFansNumber(binding.tvFansNumber, 2348734);
     }
@@ -76,5 +79,4 @@ public class MainActivity extends AppCompatActivity {
         binding.rvNavigation.setLayoutManager(new GridLayoutManager(this, 4, LinearLayoutManager.VERTICAL, false));
         binding.rvNavigation.setAdapter(adapter);
     }
-
 }

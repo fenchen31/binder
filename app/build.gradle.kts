@@ -12,8 +12,6 @@ android {
         targetSdk = 28
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
         viewBinding = true
@@ -33,9 +31,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     dataBinding {
-        enable = true
-    }
-    viewBinding {
         enable = true
     }
 }
